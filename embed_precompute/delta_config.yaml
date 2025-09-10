@@ -1,0 +1,16 @@
+# Models
+pretrained_model_path: "facebook/hubert-large-ll60k"
+finetuned_model_path: ""
+processor_path: "facebook/hubert-large-ll60k"
+
+# Data (Kaldi-style)
+wav_scp: ""
+text: ""
+
+# Output
+out_dir: ""
+output_subdir_prefix: ""  # folder name prefix
+
+# Runtime
+device: "cuda:0"   # "cuda:0", "cpu", etc.
+layer_number: -1   # -1 = last hidden state

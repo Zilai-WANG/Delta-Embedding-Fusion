@@ -1,0 +1,14 @@
+# Model + processor
+wavlm_model_path: ""
+wavlm_processor_path: ""
+
+# Data (Kaldi-style)
+wav_scp: ""
+text: ""
+
+# Output
+out_dir: ""
+
+# Runtime
+device: "cuda:1"   # e.g., "cuda:0", "cpu"
+layer_number: -1   # -1 = last hidden state
