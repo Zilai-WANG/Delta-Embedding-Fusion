@@ -1,0 +1,31 @@
+# -------- Hyperparameters --------
+num_of_epochs: 10
+learning_rate: 1.0e-4
+weight_decay: 0.01
+batch_size: 16
+hidden_size: 1024
+warmup_proportion: 0.1
+num_workers: 4
+seed: 42
+dropout: 0.1
+
+# -------- Logging / misc --------
+additional_information: ""
+save_checkpoint_dir: "m"
+wandb_project: "wavlm_delta_hubert_large_fusion"
+
+# -------- Device --------
+device: "cuda:0"   # e.g., cuda:0 or cpu
+
+# -------- Paths --------
+wavlm_model_path: "your_path_to_wavlm_model"
+
+# Train
+train_embedding_dir_wavlm: "your_path_to_wavlm_embeddings"
+train_embedding_dir_w2v2:  "your_path_to_w2v2_embeddings"
+train_text_file: "your_path_to_text_file"
+
+# Eval
+eval_embedding_dir_wavlm: "your_path_to_wavlm_embeddings"
+eval_embedding_dir_w2v2:  "your_path_to_w2v2_embeddings"
+eval_text_file: "your_path_to_text_file"

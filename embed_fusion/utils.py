@@ -1,16 +1,4 @@
-# utils.py
-import os
-import json
-import time
-import random
-import numpy as np
-import torch
-import wandb
-
-def load_config(path: str = "config.json") -> dict:
-    with open(path, "r") as f:
-        cfg = json.load(f)
-    return cfg
+import random, numpy as np, torch
 
 def setup_seed(seed: int = 42):
     random.seed(seed)
@@ -19,29 +7,19 @@ def setup_seed(seed: int = 42):
     if torch.cuda.is_available():
         torch.cuda.manual_seed_all(seed)
 
-def get_device() -> torch.device:
-    return torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-
-def ensure_dir(path: str):
-    os.makedirs(path, exist_ok=True)
-
-def pretty_print_hparams(hp: dict):
+def print_hparams(cfg: dict):
+    keys = ["num_of_epochs","learning_rate","weight_decay","batch_size","hidden_size",
+            "warmup_proportion","num_workers","dropout","additional_information"]
     print("Hyperparameters:")
-    for k, v in hp.items():
-        print(f"  {k}: {v}")
+    for k in keys:
+        if k in cfg:
+            print(f"  {k}: {cfg[k]}")
 
-def wandb_run_name(additional_information: str) -> str:
-    return f"{additional_information.replace(' ', '_')}_{int(time.time())}"
+def parse_args():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--config", type=str, default="config.yaml")
+    return ap.parse_args()
 
-def init_wandb(project: str, run_name: str, config: dict):
-    wandb.init(project=project, name=run_name, config=config)
-
-def save_predictions(predictions, out_path: str):
-    """
-    predictions: list of (utt_id, predicted_text)
-    """
-    with open(out_path, "w", encoding="utf-8") as f:
-        for utt_id, pred in predictions:
-            pred = " ".join(str(pred).strip().split())
-            f.write(f"{utt_id} {pred}\n")
-    print(f"[SAVE] Wrote predictions to {out_path}")
+def load_cfg(path: str):
+    with open(path, "r") as f:
+        return yaml.safe_load(f)
