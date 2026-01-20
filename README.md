@@ -14,3 +14,10 @@ The repository is divided into two main components:
 
 ---
 
+## Model checkpoints (Hugging Face)
+This project uses the following fine-tuned checkpoints from Hugging Face:
+
+- **WavLM**: `balaji1312/wavlm-large-myst-fullfinetune`
+- **HuBERT**: `balaji1312/hubert-large-myst-fullfinetune`
+- **Wav2Vec2**: `balaji1312/wav2vec2-large-myst-fullfinetune`
+
