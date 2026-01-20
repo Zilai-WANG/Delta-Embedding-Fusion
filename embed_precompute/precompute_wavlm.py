@@ -22,7 +22,7 @@ def parse_args():
         default="config.yaml",
         help="Path to YAML config file."
     )
-    # Optional lightweight overrides (keep names aligned with YAML keys)
+    # Optional lightweight overrides 
     parser.add_argument("--wavlm_model_path", type=str)
     parser.add_argument("--wavlm_processor_path", type=str)
     parser.add_argument("--wav_scp", type=str)

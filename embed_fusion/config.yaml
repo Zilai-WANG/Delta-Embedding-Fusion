@@ -15,7 +15,7 @@ save_checkpoint_dir: "m"
 wandb_project: "wavlm_delta_hubert_large_fusion"
 
 # -------- Device --------
-device: "cuda:0"   # e.g., cuda:0 or cpu
+device: "cuda:0"   
 
 # -------- Paths --------
 wavlm_model_path: "your_path_to_wavlm_model"
